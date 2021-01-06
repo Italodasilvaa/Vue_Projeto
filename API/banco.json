@@ -1,0 +1,88 @@
+{
+  "professores": [
+    {
+      "id": 1,
+      "nome": "Vinicius"
+    },
+    {
+      "id": 2,
+      "nome": "Marco"
+    },
+    {
+      "id": 3,
+      "nome": "Fernando"
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Italo",
+      "sobrenome": "Silva",
+      "dataNascimento": "10/05/1993",
+      "professor": {
+        "id": 2,
+        "nome": "Marco"
+      }
+    },
+    {
+      "id": 2,
+      "nome": "Igor",
+      "sobrenome": "Silvaa",
+      "dataNascimento": "05/03/2002",
+      "professor": {
+        "id": 2,
+        "nome": "Marco"
+      }
+    },
+    {
+      "id": 5,
+      "nome": "Felipe",
+      "sobrenome": "Vieira",
+      "dataNascimento": "20/11/1998",
+      "professor": {
+        "id": 1,
+        "nome": "Vinicius"
+      }
+    },
+    {
+      "id": 7,
+      "nome": "Lucas ",
+      "sobrenome": "Moura",
+      "dataNascimento": "25/01/2000",
+      "professor": {
+        "id": 3,
+        "nome": "Fernando"
+      }
+    },
+    {
+      "id": 8,
+      "nome": "Diego ",
+      "sobrenome": "Lacerda",
+      "dataNascimento": "28/11/1987",
+      "professor": {
+        "id": 2,
+        "nome": "Marco"
+      }
+    },
+    {
+      "id": 9,
+      "nome": "Jaime ",
+      "sobrenome": "Peixe",
+      "dataNascimento": "08/07/1980",
+      "professor": {
+        "id": 1,
+        "nome": "Vinicius"
+      }
+    },
+    {
+      "id": 10,
+      "nome": "Mauro ",
+      "sobrenome": "Moura ",
+      "dataNascimento": "17/03/1975",
+      "professor": {
+        "id": 3,
+        "nome": "Fernando"
+      }
+    }
+  ]
+}

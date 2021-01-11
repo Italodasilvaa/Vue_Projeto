@@ -10,9 +10,9 @@ namespace Api_ProjetoEscola.Migrations
                 name: "Professores",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nome = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -23,12 +23,12 @@ namespace Api_ProjetoEscola.Migrations
                 name: "Alunos",
                 columns: table => new
                 {
-                    AlunoId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Sobrenome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DataNascimento = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProfessorId = table.Column<int>(type: "int", nullable: false)
+                    AlunoId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nome = table.Column<string>(type: "TEXT", nullable: true),
+                    Sobrenome = table.Column<string>(type: "TEXT", nullable: true),
+                    DataNascimento = table.Column<string>(type: "TEXT", nullable: true),
+                    ProfessorId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,17 +44,17 @@ namespace Api_ProjetoEscola.Migrations
             migrationBuilder.InsertData(
                 table: "Professores",
                 columns: new[] { "Id", "Nome" },
-                values: new object[] { 1, "Vinicius" });
+                values: new object[] { 1, "Vinicius Prof" });
 
             migrationBuilder.InsertData(
                 table: "Professores",
                 columns: new[] { "Id", "Nome" },
-                values: new object[] { 2, "Marco" });
+                values: new object[] { 2, "Marco Prof" });
 
             migrationBuilder.InsertData(
                 table: "Professores",
                 columns: new[] { "Id", "Nome" },
-                values: new object[] { 3, "Fernando" });
+                values: new object[] { 3, "Fernando Prof" });
 
             migrationBuilder.InsertData(
                 table: "Alunos",

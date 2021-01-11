@@ -6,15 +6,14 @@ namespace Api_ProjetoEscola.Data
 {
     public class DataContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            
-            optionsBuilder.UseSqlServer("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=dbProjetoEscola;Data Source=ALPHAS0004\\DESE");
-        }
-        //public DataContext(DbContextOptions<DataContext> options) : base(options)
-        //{
-        //    //Instanciei o datacontext o data recebe os parametros   depois que receber os parametros por meio do base passa para o Dbcontext a informacao
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{            
+        //    optionsBuilder.UseSqlServer("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=dbProjetoEscola;Data Source=ALPHAS0004\\DESE");
         //}
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {
+            //    //Instanciei o datacontext o data recebe os parametros   depois que receber os parametros por meio do base passa para o Dbcontext a informacao
+        }
 
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Professor> Professores { get; set; }
@@ -30,19 +29,19 @@ namespace Api_ProjetoEscola.Data
                     {
       
                         Id= 1,
-                        Nome = "Vinicius"
+                        Nome = "Vinicius Prof"
 
                     },
                      new Professor()
                     {
                         Id= 2,
-                        Nome = "Marco"
+                        Nome = "Marco Prof"
 
                     },
                       new Professor()
                     {
                         Id= 3,
-                        Nome = "Fernando"
+                        Nome = "Fernando Prof"
 
                     },
                 }

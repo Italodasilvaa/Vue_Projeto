@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Api_ProjetoEscola.Data;
+using Api_ProjetoEscola.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace Api_ProjetoEscola.Controllers
 {
@@ -11,39 +11,120 @@ namespace Api_ProjetoEscola.Controllers
     [ApiController]
     public class AlunoController : ControllerBase
     {
-        public AlunoController()
+        public  IRepository _repository { get; }
+        public AlunoController(IRepository repository)
         {
-
+            _repository = repository;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok();
+            try
+            {
+                var result = await _repository.GetAllAlunosAsync(true);
+                return Ok(result);
+            }
+            catch (SystemException)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Bando de Dados Falhou");
+            }
+
         }
 
         [HttpGet("{AlunoId}")]
-        public IActionResult Get(int AlunoId)
+        public async Task<IActionResult> GetByAlunoId(int AlunoId)
         {
-            return Ok();
+            try
+            {
+                var result = await _repository.GetAlunoAsyncById(AlunoId, true);
+                return Ok(result);
+            }
+            catch (SystemException)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Bando de Dados Falhou");
+            };
+        }
+
+        [HttpGet("ByProfessor/{ProfessorId}")]
+        public async Task<IActionResult> GetByProfessorId(int ProfessorId)
+        {
+            try
+            {
+                var result = await _repository.GetAlunosAsyncProfessorId(ProfessorId, true);
+                return Ok(result);
+            }
+            catch (SystemException)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Bando de Dados Falhou");
+            };
         }
 
         [HttpPost]
-        public IActionResult Post()
+        public async Task<IActionResult> Post(Aluno model)
         {
-            return Ok();
+            try
+            {
+                _repository.Add(model);
+                if (await _repository.SaveChangesAsync())
+                {
+                    return Created($"api/aluno/{model.AlunoId}", model);
+                }
+
+            }
+            catch (SystemException)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Bando de Dados Falhou");
+            }
+            return BadRequest();
         }
 
+
+
         [HttpPut("{AlunoId}")]
-        public IActionResult Put(int AlunoId)
+        public async Task<IActionResult> Put(int AlunoId, Aluno model)
         {
-            return Ok();
+            try
+            {
+                var aluno = await _repository.GetAlunoAsyncById(AlunoId, false);
+                if (aluno == null) return NotFound();
+
+                _repository.Update(model);
+
+                if (await _repository.SaveChangesAsync())
+                {
+                    aluno = await _repository.GetAlunoAsyncById(AlunoId, true);
+                    return Created($"api/aluno/{model.AlunoId}", aluno);
+                }
+
+            }
+            catch (SystemException)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Bando de Dados Falhou");
+            }
+            return BadRequest();
         }
 
         [HttpDelete("{AlunoId}")]
-        public IActionResult Delete(int AlunoId)
+        public async Task<IActionResult> Delete(int AlunoId)
         {
-            return Ok();
+            try
+            {
+                var aluno = await _repository.GetAlunoAsyncById(AlunoId, false);
+                if (aluno == null) return NotFound();
+
+                _repository.Delete(aluno);
+
+                if (await _repository.SaveChangesAsync())
+                {
+                    return Ok();
+                    }
+            }
+            catch (SystemException)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Bando de Dados Falhou");
+            }
+            return BadRequest();
         }
 
 

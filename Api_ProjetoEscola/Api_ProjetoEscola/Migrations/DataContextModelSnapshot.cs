@@ -2,7 +2,6 @@
 using Api_ProjetoEscola.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Api_ProjetoEscola.Migrations
@@ -14,28 +13,25 @@ namespace Api_ProjetoEscola.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("Api_ProjetoEscola.Models.Aluno", b =>
                 {
                     b.Property<int>("AlunoId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("DataNascimento")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ProfessorId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Sobrenome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("AlunoId");
 
@@ -74,11 +70,10 @@ namespace Api_ProjetoEscola.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -88,17 +83,17 @@ namespace Api_ProjetoEscola.Migrations
                         new
                         {
                             Id = 1,
-                            Nome = "Vinicius"
+                            Nome = "Vinicius Prof"
                         },
                         new
                         {
                             Id = 2,
-                            Nome = "Marco"
+                            Nome = "Marco Prof"
                         },
                         new
                         {
                             Id = 3,
-                            Nome = "Fernando"
+                            Nome = "Fernando Prof"
                         });
                 });
 

@@ -24,8 +24,9 @@ export default new Router({
             nome:'Alunos',
             component: Alunos
         },
+        
         {
-            path:'/alunoDetalhe/:id',
+            path:'/AlunoDetalhe/:id',
             nome:'AlunoDetalhe',
             component: AlunoDetalhe
         },

@@ -5926,11 +5926,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\TFS\\Pentacom.Trainee\\Curso Vue Js + Asp.net core\\Vue_Projeto\\Api_ProjetoEscola\\Api_ProjetoEscola\\Api_ProjetoEscola.csproj",
+      "projectUniqueName": "C:\\TFS\\Pentacom.Trainee\\CursoVueJs\\VueProjeto\\Api_ProjetoEscola\\Api_ProjetoEscola\\Api_ProjetoEscola.csproj",
       "projectName": "Api_ProjetoEscola",
-      "projectPath": "C:\\TFS\\Pentacom.Trainee\\Curso Vue Js + Asp.net core\\Vue_Projeto\\Api_ProjetoEscola\\Api_ProjetoEscola\\Api_ProjetoEscola.csproj",
+      "projectPath": "C:\\TFS\\Pentacom.Trainee\\CursoVueJs\\VueProjeto\\Api_ProjetoEscola\\Api_ProjetoEscola\\Api_ProjetoEscola.csproj",
       "packagesPath": "C:\\Users\\italo.silva\\.nuget\\packages\\",
-      "outputPath": "C:\\TFS\\Pentacom.Trainee\\Curso Vue Js + Asp.net core\\Vue_Projeto\\Api_ProjetoEscola\\Api_ProjetoEscola\\obj\\",
+      "outputPath": "C:\\TFS\\Pentacom.Trainee\\CursoVueJs\\VueProjeto\\Api_ProjetoEscola\\Api_ProjetoEscola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\italo.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",

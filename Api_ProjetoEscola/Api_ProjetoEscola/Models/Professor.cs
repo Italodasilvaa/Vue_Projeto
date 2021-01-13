@@ -9,6 +9,7 @@ namespace Api_ProjetoEscola.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Materia { get; set; }
 
         public List<Aluno> Alunos { get; set; }
     }

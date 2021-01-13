@@ -6,7 +6,7 @@
           ? 'Professor: ' + this.professor.nome
           : 'Todos os Alunos'
       "
-      btnVoltar="true"
+      :btnVoltar="true"
     />
 
     <div v-if="professorId != undefined">
@@ -69,6 +69,7 @@ export default {
       professor: {},
       nome: "",
       alunos: [],
+      
     };
   },
   created() {
@@ -98,11 +99,13 @@ export default {
       };
       this.$http
         .post("http://localhost:5000/api/aluno", _aluno)
-        .then((res) => res.json())
-        .then((aluno) => this.alunos.push(aluno), (this.nome = ""));
+        .then(res => res.json())
+        .then(aluno => this.alunos.push(aluno)), 
+        this.nome = "";
     },
     remover(aluno) {
-      this.$http.delete(`http://localhost:5000/api/aluno/${aluno.id}`).then(() => {
+      
+      this.$http.delete(`http://localhost:5000/api/aluno/${aluno.alunoId}`).then(() => {
         let indice = this.alunos.indexOf(aluno);
         this.alunos.splice(indice, 1);
       });

@@ -29,19 +29,22 @@ namespace Api_ProjetoEscola.Data
                     {
       
                         Id= 1,
-                        Nome = "Vinicius Prof"
+                        Nome = "Vinicius Prof",
+                        Materia = "Ed.fisica"
 
                     },
                      new Professor()
                     {
                         Id= 2,
-                        Nome = "Marco Prof"
+                        Nome = "Marco Prof",
+                        Materia = "Matematica"
 
                     },
                       new Professor()
                     {
                         Id= 3,
-                        Nome = "Fernando Prof"
+                        Nome = "Fernando Prof",
+                        Materia = "Portugues"
 
                     },
                 }

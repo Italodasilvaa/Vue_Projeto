@@ -93,19 +93,29 @@ namespace Api_ProjetoEscola.Controllers
         }
 
         [HttpDelete("{ProfessorId}")]
-        public async Task<IActionResult> DeleteAsync(int ProfessorId)
+        public async Task<IActionResult> DeleteAsync(int ProfessorId , int AlunoId)
         {
             try
             {
-                var professor = await _repository.GetProfessorAsyncById(ProfessorId, false);
-                    if(professor == null) return NotFound();
-
-                _repository.Delete(professor);
-
-                if (await _repository.SaveChangesAsync())
+                
+                var professor = await _repository.GetProfessorAsyncById(ProfessorId, true);
+                
+                
+                if (professor == null) return NotFound();
+                if(professor.Alunos.Count > 0) 
                 {
-                    return Ok();
+                    return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
                 }
+                else
+                {
+                    _repository.Delete(professor);
+
+                    if (await _repository.SaveChangesAsync())
+                    {
+                        return Ok();
+                    }
+                }
+               
             }
             catch (SystemException)
             {
